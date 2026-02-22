@@ -1,26 +1,157 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
+/* Light Theme (Default) */
 :root {
+  /* Base colors from palette */
+  --color-charcoal: #2c3333;
+  --color-slate: #2e4f4f;
+  --color-teal: #0e8388;
+  --color-mint: #cbe4de;
+
+  /* Semantic colors for light theme */
   --background: #ffffff;
-  --foreground: #171717;
+  --background-secondary: var(--color-mint);
+  --background-accent: #e8f4f1;
+  --foreground: var(--color-charcoal);
+  --foreground-muted: var(--color-slate);
+
+  --primary: var(--color-teal);
+  --primary-hover: #0a6b6f;
+  --primary-foreground: #ffffff;
+
+  --secondary: var(--color-slate);
+  --secondary-hover: #25403f;
+  --secondary-foreground: #ffffff;
+
+  --border: #d1e7e0;
+  --border-strong: var(--color-mint);
+
+  --card-background: #ffffff;
+  --card-border: var(--border);
+  --card-shadow: rgba(46, 79, 79, 0.1);
+
+  --accent: var(--color-teal);
+  --accent-light: rgba(14, 131, 136, 0.1);
+
+  --success: #0e8388;
+  --warning: #f59e0b;
+  --error: #ef4444;
+}
+
+/* Dark Theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--color-charcoal);
+    --background-secondary: var(--color-slate);
+    --background-accent: #1a2a2a;
+    --foreground: var(--color-mint);
+    --foreground-muted: #a8c9c0;
+
+    --primary: var(--color-teal);
+    --primary-hover: #10a5ab;
+    --primary-foreground: #ffffff;
+
+    --secondary: var(--color-slate);
+    --secondary-hover: #3a6262;
+    --secondary-foreground: var(--color-mint);
+
+    --border: #3a4a4a;
+    --border-strong: var(--color-slate);
+
+    --card-background: #344040;
+    --card-border: #3a4a4a;
+    --card-shadow: rgba(0, 0, 0, 0.3);
+
+    --accent: var(--color-teal);
+    --accent-light: rgba(14, 131, 136, 0.2);
+
+    --success: #10a5ab;
+    --warning: #fbbf24;
+    --error: #f87171;
+  }
+}
+
+/* Explicit dark mode class for manual toggle */
+.dark {
+  --background: var(--color-charcoal);
+  --background-secondary: var(--color-slate);
+  --background-accent: #1a2a2a;
+  --foreground: var(--color-mint);
+  --foreground-muted: #a8c9c0;
+
+  --primary: var(--color-teal);
+  --primary-hover: #10a5ab;
+  --primary-foreground: #ffffff;
+
+  --secondary: var(--color-slate);
+  --secondary-hover: #3a6262;
+  --secondary-foreground: var(--color-mint);
+
+  --border: #3a4a4a;
+  --border-strong: var(--color-slate);
+
+  --card-background: #344040;
+  --card-border: #3a4a4a;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+
+  --accent: var(--color-teal);
+  --accent-light: rgba(14, 131, 136, 0.2);
+
+  --success: #10a5ab;
+  --warning: #fbbf24;
+  --error: #f87171;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-background-accent: var(--background-accent);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-foreground-muted: var(--foreground-muted);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-card-background: var(--card-background);
+  --color-card-border: var(--card-border);
+
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+
+  /* Custom color palette */
+  --color-charcoal: #2c3333;
+  --color-slate: #2e4f4f;
+  --color-teal: #0e8388;
+  --color-mint: #cbe4de;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }

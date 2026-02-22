@@ -79,6 +79,87 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - `npm run lint:fix` - Fix ESLint errors automatically
 - `npm run format` - Format code with Prettier
 - `npm run format:check` - Check code formatting
+- `npm run typecheck` - Type check with TypeScript
+
+## Project Structure
+
+```
+chess-trainer/
+├── app/                    # Next.js App Router pages
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   └── globals.css        # Global styles
+├── tests/                 # All tests
+│   ├── e2e/              # Playwright E2E tests
+│   └── *.test.tsx        # Jest unit tests
+├── .github/              # GitHub Actions workflows
+│   └── workflows/
+│       └── ci.yml        # CI pipeline
+├── .husky/               # Git hooks
+│   ├── pre-commit        # Pre-commit hook (format, typecheck, test)
+│   └── commit-msg        # Commit message validation
+├── jest.config.ts        # Jest configuration
+├── playwright.config.ts  # Playwright configuration
+├── eslint.config.mjs     # ESLint configuration
+├── .prettierrc           # Prettier configuration
+└── commitlint.config.mjs # Commitlint configuration
+```
+
+## Git Hooks
+
+This project uses Husky to enforce code quality before commits:
+
+### Pre-commit Hook
+
+The pre-commit hook automatically runs:
+
+1. **Lint-staged**: Formats and lints staged files
+2. **Type check**: Runs TypeScript type checking
+3. **Tests**: Runs unit tests
+
+### Commit Message Hook
+
+Validates commit messages against [Conventional Commits](https://www.conventionalcommits.org/) specification.
+
+Format: `<type>(<scope>): <subject>`
+
+Types:
+
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `style`: Code style changes (formatting, etc)
+- `refactor`: Code refactoring
+- `perf`: Performance improvements
+- `test`: Adding or updating tests
+- `chore`: Maintenance tasks
+- `ci`: CI/CD changes
+- `build`: Build system changes
+
+Example:
+
+```bash
+git commit -m "feat(pgn): add PGN import functionality"
+git commit -m "fix(training): correct move validation logic"
+```
+
+## Continuous Integration
+
+GitHub Actions CI pipeline runs on every push and pull request to `main` and `dev` branches:
+
+1. **Lint**: Code formatting, linting, and type checking
+2. **Commitlint**: Validates commit messages (PR only)
+3. **Test**: Runs unit tests with coverage
+4. **E2E**: Runs Playwright end-to-end tests
+5. **Build**: Builds the application
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feat/amazing-feature`)
+3. Commit your changes following conventional commits
+4. Push to the branch (`git push origin feat/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 

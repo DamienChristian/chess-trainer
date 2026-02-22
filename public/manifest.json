@@ -1,0 +1,57 @@
+{
+  "name": "Chess Trainer",
+  "short_name": "Chess Trainer",
+  "description": "Import PGN chess studies and practice your moves with an interactive chess trainer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2C3333",
+  "theme_color": "#0E8388",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-small.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-icon.svg",
+      "sizes": "200x200",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["education", "games"],
+  "shortcuts": [
+    {
+      "name": "Import Study",
+      "short_name": "Import",
+      "description": "Import a new PGN study",
+      "url": "/import"
+    },
+    {
+      "name": "My Studies",
+      "short_name": "Studies",
+      "description": "View your chess studies",
+      "url": "/studies"
+    }
+  ]
+}

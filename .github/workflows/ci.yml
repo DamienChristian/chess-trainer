@@ -28,6 +28,9 @@ jobs:
       - name: Run linting
         run: npm run lint
 
+      - name: Type check
+        run: npm run typecheck
+
   commitlint:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'

@@ -1,1 +1,11 @@
+# Format and lint staged files
+
 npx lint-staged
+
+# Type check
+
+npm run typecheck
+
+# Run tests
+
+npm run test -- --passWithNoTests

@@ -1,0 +1,34 @@
+import { ImageResponse } from 'next/og';
+
+export const size = {
+  width: 180,
+  height: 180,
+};
+export const contentType = 'image/png';
+
+export default function AppleIcon() {
+  return new ImageResponse(
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, #0E8388, #2E4F4F)',
+        borderRadius: '40px',
+      }}
+    >
+      <svg viewBox="0 0 104.38 122.88" width="110" height="130">
+        <path
+          fillRule="evenodd"
+          fill="#CBE4DE"
+          d="M35.73,32.57a20.45,20.45,0,1,1,32.91,0Zm35.06,3.88a7.1,7.1,0,0,1,6.17,7h0a7.11,7.11,0,0,1-6.61,7.06H34a7.1,7.1,0,0,1-6.6-7.06h0a7.1,7.1,0,0,1,6.17-7ZM63.33,54.4c.91,14.57,6,26.07,18.75,31.85V91.6H22.3V86.25c12-3.8,17.68-15,18.73-31.85ZM82.39,95.45a14.39,14.39,0,0,1,12.67,14.23v.22H9.32v-.22A14.39,14.39,0,0,1,22,95.45l.31,0H82.08l.31,0ZM94.9,113.77a12,12,0,0,1,9.48,9.11H0a12,12,0,0,1,9.47-9.11Z"
+        />
+      </svg>
+    </div>,
+    {
+      ...size,
+    }
+  );
+}

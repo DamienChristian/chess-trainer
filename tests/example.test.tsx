@@ -2,9 +2,9 @@ import { render, screen } from '@testing-library/react';
 import Home from '@/app/page';
 
 describe('Home', () => {
-  it('renders the home page', () => {
+  it('renders the chess trainer heading', () => {
     render(<Home />);
-    // Add your assertions here
-    expect(document.body).toBeInTheDocument();
+    const heading = screen.getByText(/Chess Trainer/i);
+    expect(heading).toBeInTheDocument();
   });
 });
